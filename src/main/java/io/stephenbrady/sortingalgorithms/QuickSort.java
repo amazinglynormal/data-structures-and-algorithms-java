@@ -1,5 +1,7 @@
 package io.stephenbrady.sortingalgorithms;
 
+import io.stephenbrady.Utils;
+
 public class QuickSort {
 
     public static void sort(int[] array) {
@@ -21,7 +23,7 @@ public class QuickSort {
     private static int partition(int[] array, int start, int end) {
         int pivot = middleOfThreePivot(array, start, end);
 
-        swap(array, pivot, end);
+        Utils.swapArrayIndexes(array, pivot, end);
 
         int leftPointer = start;
         int rightPointer = end - 1;
@@ -35,10 +37,10 @@ public class QuickSort {
                 rightPointer--;
             }
 
-            swap(array, leftPointer, rightPointer);
+            Utils.swapArrayIndexes(array, leftPointer, rightPointer);
         }
 
-        swap(array, leftPointer, end);
+        Utils.swapArrayIndexes(array, leftPointer, end);
 
         return leftPointer;
     }
@@ -47,23 +49,17 @@ public class QuickSort {
         int mid = start + (end - start) / 2;
 
         if (array[start] > array[mid]) {
-            swap(array, start, mid);
+            Utils.swapArrayIndexes(array, start, mid);
         }
 
         if (array[mid] > array[end]) {
-            swap(array, mid, end);
+            Utils.swapArrayIndexes(array, mid, end);
         }
 
         if (array[start] > array[mid]) {
-            swap(array, start, mid);
+            Utils.swapArrayIndexes(array, start, mid);
         }
 
         return mid;
-    }
-
-    private static void swap(int[] array, int indexA, int indexB) {
-        int temp = array[indexA];
-        array[indexA] = array[indexB];
-        array[indexB] = temp;
     }
 }

@@ -1,5 +1,7 @@
 package io.stephenbrady.sortingalgorithms;
 
+import io.stephenbrady.Utils;
+
 public class SelectionSort {
 
     public static void sort(int[] array) {
@@ -19,14 +21,8 @@ public class SelectionSort {
             }
 
             if (minValueIndex != i) {
-                swap(array, i, minValueIndex);
+                Utils.swapArrayIndexes(array, i, minValueIndex);
             }
         }
-    }
-
-    private static void swap(int[] array, int indexA, int indexB) {
-        int temp = array[indexA];
-        array[indexA] = array[indexB];
-        array[indexB] = temp;
     }
 }

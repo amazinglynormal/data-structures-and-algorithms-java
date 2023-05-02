@@ -1,18 +1,15 @@
 package io.stephenbrady.datastructures.trees;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Node<T> {
 
     public T val;
-    public Node<T> left;
-    public Node<T> right;
+    public List<Node<T>> children;
 
     public Node(T val) {
-        this(val, null, null);
-    }
-
-    public Node(T val, Node<T> left, Node<T> right) {
         this.val = val;
-        this.left = left;
-        this.right = right;
+        this.children = new ArrayList<>();
     }
 }

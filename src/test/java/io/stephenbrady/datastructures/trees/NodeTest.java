@@ -7,24 +7,30 @@ import static org.junit.jupiter.api.Assertions.*;
 class NodeTest {
 
     @Test
-    public void testBasicConstructor() {
+    public void testConstructor() {
         Node<Integer> node = new Node<>(1);
 
         assertEquals(1, node.val);
-        assertNull(node.left);
-        assertNull(node.right);
+        assertEquals(0, node.children.size());
     }
 
     @Test
-    public void testFullConstructor() {
-        Node<Integer> left = new Node<>(2);
-        Node<Integer> right = new Node<>(3);
-        Node<Integer> node = new Node<>(1, left, right);
+    public void testChildrenList() {
+        Node<Integer> node = new Node<>(1);
+
+        assertEquals(0, node.children.size());
+
+        Node<Integer> childNode1 = new Node<>(2);
+        Node<Integer> childNode2 = new Node<>(3);
+        Node<Integer> childNode3 = new Node<>(4);
+        Node<Integer> childNode4 = new Node<>(5);
 
 
-        assertEquals(1, node.val);
-        assertEquals(2, node.left.val);
-        assertEquals(3, node.right.val);
+        node.children.add(childNode1);
+        node.children.add(childNode2);
+        node.children.add(childNode3);
+        node.children.add(childNode4);
+
+        assertEquals(4, node.children.size());
     }
-
 }
